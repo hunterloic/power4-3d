@@ -9,7 +9,7 @@ router.get('/', (req, res, next) => {
     });
 });
 
-router.get('/start', (req, res, next) => {
+router.post('/start', (req, res, next) => {
     game.initialize();
     res.status(200).json({
         game : game.get_instance()
