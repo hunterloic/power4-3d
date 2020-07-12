@@ -10,7 +10,14 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/start', (req, res, next) => {
+    var turn = game.get_instance().turn;
     game.initialize();
+
+    //switch turn
+    if(req.body.firstPlayer) {
+        game.get_instance().turn = req.body.firstPlayer;
+    }
+
     res.status(200).json({
         game : game.get_instance()
     });

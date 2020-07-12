@@ -3,7 +3,7 @@ const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
-const productRoutes = require('./api/routes/products');
+const playerRoutes = require('./api/routes/player');
 const gameRoutes = require('./api/routes/game');
 
 app.use(morgan('dev'));
@@ -22,14 +22,13 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/products', productRoutes);
+app.use('/player', playerRoutes);
 app.use('/game', gameRoutes);
 
 app.use((req, res, next) => {
     const error = new Error('Not found');
     error.status = 404;
     next(error);
-    
 });
 
 app.use((error, req, res, next) => {

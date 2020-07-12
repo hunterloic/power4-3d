@@ -16,6 +16,8 @@ exports.get_instance = () => {
 }
 
 exports.initialize = () => {
+
+    game.players = new Array();
     game.winner = CST_WINNER_NONE;
     game.turn = CST_TURN_P1;
     game.board = [];
@@ -25,6 +27,7 @@ exports.initialize = () => {
             game.board [i][j] = [0, 0, 0, 0];
         }
     }
+
     game.error = "";
 }
 
